@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Products</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="js/cufon-yui.js" type="text/javascript"></script>
+    <script src="js/cufon-replace.js" type="text/javascript"></script> 
+    <script src="js/FF-cash.js" type="text/javascript"></script>
+    <script src="js/jquery.equalheights.js" type="text/javascript"></script> 
+    <script src="js/jquery.cycle.all.js" type="text/javascript"></script>
+	<script>
+		$('#banners')
+			.cycle({ 
+				fx: 'fade', 
+				delay: 7000 ,
+				timeout: 30000,
+				manualTrump:false,
+				cleartypeNoBg: true,
+				next: '#next',
+				prev: '#prev'
+			});
+	</script>     
+	<!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+        	<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+    </div>
+	<![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="js/html5.js"></script>
+        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+	<![endif]-->
+</head>
+<body id="page4">
+	<div class="main">
+        <!--==============================header=================================-->
+        <header>
+            <div class="container_12">
+                <div class="wrapper">
+                    <div class="grid_12">
+                        <div class="wrapper border-bot">
+                            <h1 align="center"><a href="index.html">Helvar Project<strong>#09</strong></a></h1>
+                        </div>
+                        <div class="wrapper1">
+                            <div id="banners" class="border-bot1">
+                                <div>
+                                    <strong class="title-1">Smart, wireless light sensor</strong>
+                                    <strong class="title-2"></strong>
+                                </div>
+                                <div>
+                                    <strong class="title-1">Smart, wireless light sensor</strong>
+                                    <strong class="title-2"></strong>
+                                </div>
+                                <div>
+                                    <strong class="title-1">Smart, wireless light sensor</strong>
+                                    <strong class="title-2"></strong>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+        </header>
+        
+        <!--==============================content================================-->
+            <img src="images/sensor.jpg" class="li" width="300px" height="300px" align="right">
+            <h3>Sensor unit</h3>
+            <p class="leftp">The sensor unit is constructed from two parts, the energy harvesting part and the wireless sensor module. The energy harvesting unit is constructed with solar panel and a super capacitor. A simple voltage clamping circuit is also included so the voltage cannot exceed the limits of the sensor module.
+            The Wireless sensor module is built with Vishays  VCNL4010 sensor and a Bluetooth low energy module BMD-200-B-R by Rigado. The BLE module is based on very popular nRF51 chips, which are relatively easy to develope on.</p>
+            <h3>Wireless sensor unit</h3>
+            <p>The wireless sensor unit consists of two main components, the BLE module and the ambient light and proximity sensor. These two are connected to each other via I2C bus BLE module working as a host. also an interrupt line is included so the BLE module can be held at sleep state to save energy when there is no activity.</p>
+            <p>For our sensor we choose the Vishay VNCL4010 ambient light and proximity sensor. It comes with a really low current consumption and it’s usage is well documented. It can be set to trigger interrupts for example when certain proximity or ambient light threshold values are exceeded. The controlling can be done entirely by using I2C bus and there is already modules and arduino library by Adafruit. The package is a little challenging to solder but with good equipment it is not a problem.</p>
+            <p>Bluetooth low energy module built around Nordic semiconductor's nRF51822 BLE chip. It has 256kB of flash and 32kB of ram and a arm m0 core. It can be configured to perform any kinds of BLE actions by Directly programming the flash memory. Nordic semiconductor provides all the needed libraries and examples to build applications for it. In our sensor unit it also acts as a I2C master for the actual sensor.</p>
+            <img src="images/mp.jpg" class="ri" width="300px" height="300px">
+            <h3>Energy Harvesting</h3>
+            <p>energy harvestin is made with a regular 5.5v solar panel. The wireles sensor module can only handel voltages up to 3.8V so the voltage needs to be limites somehow. since we were working on a low power application, simple zener diode to limit the voltage was too ineficient. the leacage current was too big and the voltage/current curve wasn’t steep enough so the voltage achieved varied a lot depending on the illumination conditions. The other simple solution for voltage clamping was to use NMOS and taking the gate signal with voltage divider from input voltage. If the voltage rises over a certain limit, the NMOS starts conducting and the voltage drops. since the low power solar panel can be seen as a quite high impedance source, even a small extra current drawn will be enough to collapse the voltage.</p>
+            <img src="images/12.jpg" class="li">
+            <h3>Housing</h3>
+            <p>The module is housed in a small plastic enclosure that can be 3D printed in less than two hours. all the components can be fixed to the housing using double sided adhesive. The constructed unit can be easily fixed on almost any surface with double sided tape.</p></br></br></br>
+            <h3>List of components</h3>
+            <b><h3 class="h4">Solar panel parts:</h3>
+            <a href="http://www.mouser.fi/ProductDetail/Seeed-Studio/313070004/?qs=SElPoaY2y5IR7rJqVJryrQ==">POW112D2P</a> - Solar panel</br>
+            <a href="http://fi.farnell.com/panasonic-electronic-components/eecs5r5v105/cap-double-1f-5-5v-rad/dp/9697489">EECS5R5V105</a> -  Supercapacitor, EDLC, 1 F, 5.5 V, Radial Leaded, SG Series, +80%, -20%
+            </br>
+            1N5819 - Schottky diode</br>
+            BUZ11A - NMOS transistor</br>
+            1,5Mohm - resistor</br>
+            680Kohm - resistor</br>
+            <h3 class="h4">Wireless sensor unit parts:</h3>
+            <a href="http://fi.farnell.com/vishay/vcnl4010-gs08/sensor-als-proximity-smd/dp/2251456">VCNL4010-GS08
+            </a> - SENSOR,ALS+PROXIMITY,SMD</br>
+            <a href="https://www.digikey.fi/product-detail/en/rigado-inc/BMD-200-B-R/1604-1004-1-ND/5719355">BMD-200-B-R</a> - nRF51822 32kB RAM</br>
+            12,91</br>
+            10 ohm - resistor</br>
+            100nF - capacitor x2</br>
+            10uF - capacitor x2</br>
+            2.2 Kohm - resistor x2 (optional)</br>
+            10Kohm - resistor (optional)</br></b>
+
+
+
+           
+
+
+            
+
+        <!--==============================footer=================================-->
+        <footer>
+        	<div class="inner">
+            	<div class="footer-bg">
+                	Aalto-yliopisto, Sähkötekniikan korkeakoulu ELEC-D0301 Protopaja &copy; 2017
+                    <span><a class="link" target="_blank" href="http://www.templatemonster.com/ru" rel="nofollow"></a> </span><span> <a href="http://www.opencartmaster.ru"></a></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+	<script type="text/javascript"> Cufon.now(); </script>
+</body>
+</html>
